@@ -18,22 +18,20 @@ For more information, please refer to the following:(https://github.com/dadesso1
 
 
 
-## RJ-PINNs Diagram
-
 ```mermaid
 graph TD;
-    A[Input: \( x_i,t \)] --> B[Hidden Layers];
-    B --> C[Output: \( u_{\theta}(x_i,t) \)];
+    A[Input: x_i, t] --> B[Hidden Layers];
+    B --> C[Output: u_theta(x_i, t)];
     
-    C --> D1[Residual: \( \mathcal{R}_{\text{data}} \)];
-    C --> D2[Residual: \( \mathcal{R}_{\text{physics}} \)];
-    C --> D3[Residual: \( \mathcal{R}_{\text{bc}} \)];
-    C --> D4[Residual: \( \mathcal{R}_{\text{ic}} \)];
+    C --> D1[Residual: R_data];
+    C --> D2[Residual: R_physics];
+    C --> D3[Residual: R_bc];
+    C --> D4[Residual: R_ic];
 
-    D1 --> E[Weighted Residuals: \( \mathbf{R} \)];
+    D1 --> E[Weighted Residuals: R];
     D2 --> E;
     D3 --> E;
     D4 --> E;
 
-    E --> F[Jacobian \( J = \frac{\partial \mathbf{R}}{\partial \theta} \)];
+    E --> F[Jacobian J = dR/dθ];
     F --> G[Optimization using TRF];
