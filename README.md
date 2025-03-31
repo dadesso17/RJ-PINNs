@@ -30,8 +30,8 @@ This repository implements RJ-PINNs, which combine neural networks with physics-
 
 ```mermaid
 graph TD
-    A[Input: xᵢ, t] --> B[Hidden Layers]
-    B --> C[Output: uθ(xᵢ,t)]
+    A[Input: x, t] --> B[Hidden Layers]
+    B --> C[Output: u(x,t)]
     C --> D[Residual: R_data]
     C --> E[Residual: R_physics]
     C --> F[Residual: R_bc]
