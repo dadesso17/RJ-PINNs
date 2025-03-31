@@ -17,11 +17,10 @@ For more information, please refer to the following:(https://github.com/dadesso1
 *Table: Comparison between Traditional PINNs and RJ-PINNs*
 
 
-
 ```mermaid
 graph TD;
-    A[Input: x_i, t] --> B[Hidden Layers];
-    B --> C[Output: u_theta(x_i, t)];
+    A[Input: x_i and t] --> B[Hidden Layers];
+    B --> C[Output: u_theta];
     
     C --> D1[Residual: R_data];
     C --> D2[Residual: R_physics];
@@ -33,5 +32,5 @@ graph TD;
     D3 --> E;
     D4 --> E;
 
-    E --> F[Jacobian J = dR/dθ];
+    E --> F[Jacobian J = dR / dTheta];
     F --> G[Optimization using TRF];
