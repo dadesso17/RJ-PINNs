@@ -16,7 +16,7 @@ For more information, please refer to the following:(https://github.com/dadesso1
 
 *Table: Comparison between Traditional PINNs and RJ-PINNs*
 
-
+## RJ-PINNs Diagram
 ```mermaid
 graph TD;
     A[Input: x_i and t] --> B[Hidden Layers];
