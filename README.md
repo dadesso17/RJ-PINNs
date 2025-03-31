@@ -18,27 +18,22 @@ For more information, please refer to the following:(https://github.com/dadesso1
 
 
 
-# RJ-PINNs: Residual-Jacobian Physics-Informed Neural Networks
-
-A framework for solving differential equations using Physics-Informed Neural Networks (PINNs) with a focus on residual and Jacobian computation for optimization.
-
-## Overview
-
-This repository implements RJ-PINNs, which combine neural networks with physics-based constraints to solve differential equations. The approach computes various residuals and uses their Jacobian for optimization with Trust Region Reflective (TRF) methods.
-
-## Architecture
+## RJ-PINNs Diagram
 
 ```mermaid
-graph TD
-    A[Input: x, t] --> B[Hidden Layers]
-    B --> C[Output: u(x,t)]
-    C --> D[Residual: R_data]
-    C --> E[Residual: R_physics]
-    C --> F[Residual: R_bc]
-    C --> G[Residual: R_ic]
-    D --> H[Weighted Residuals: R]
-    E --> H
-    F --> H
-    G --> H
-    H --> I[Jacobian J = ∂R/∂θ]
-    I --> J[Optimization using TRF]
+graph TD;
+    A[Input: \( x_i,t \)] --> B[Hidden Layers];
+    B --> C[Output: \( u_{\theta}(x_i,t) \)];
+    
+    C --> D1[Residual: \( \mathcal{R}_{\text{data}} \)];
+    C --> D2[Residual: \( \mathcal{R}_{\text{physics}} \)];
+    C --> D3[Residual: \( \mathcal{R}_{\text{bc}} \)];
+    C --> D4[Residual: \( \mathcal{R}_{\text{ic}} \)];
+
+    D1 --> E[Weighted Residuals: \( \mathbf{R} \)];
+    D2 --> E;
+    D3 --> E;
+    D4 --> E;
+
+    E --> F[Jacobian \( J = \frac{\partial \mathbf{R}}{\partial \theta} \)];
+    F --> G[Optimization using TRF];
