@@ -27,7 +27,7 @@ If you use RJ-PINNs in your research, please cite:
 ```bibtex
 @software{Dadesso_RJ-PINNs_2025,
   author = {Dadesso, Dadoyi},
-  title = {{Residual Jacobian Physics-Informed Neural Networks (RJ-PINNs)}},
+  title = {{Residual Jacobian Physics-Informed Neural Networks (RJ-PINNs) for Guaranteed Convergence}},
   year = {2025},
   version = {1.0},
   publisher = {Zenodo},
