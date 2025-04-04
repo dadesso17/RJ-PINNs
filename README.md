@@ -18,7 +18,7 @@ For more information, please refer to the following:(https://github.com/dadesso1
 
     
     <p align="center">
-  <img src="./im.pdf" width="800">
+  <img src="./im.png" width="800">
 </p>
 
 ## Citation
