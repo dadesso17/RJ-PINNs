@@ -52,7 +52,6 @@ flowchart TD
     
     E --> F["Compute Sensitivity"]
     F --> G["Optimization Process"]
-
 ## Citation
 If you use RJ-PINNs in your research, please cite:
 
