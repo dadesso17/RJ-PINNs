@@ -18,24 +18,24 @@ For more information, please refer to the following:(https://github.com/dadesso1
 
 ## RJ-PINNs Diagram
 ```mermaid
-graph TD;
-    A[Input: x_i and t] --> B[Hidden Layers];
-    B --> C[Output: u_theta];
+graph TD
+    A[Input: x, t] --> B[Neural Network]
+    B --> C[Prediction: u_θ]
     
-    C --> D1[Residual: R_data];
-    C --> D2[Residual: R_physics];
-    C --> D3[Residual: R_bc];
-    C --> D4[Residual: R_ic];
+    C --> D1[R_data = u_θ - u_obs]
+    C --> D2[R_physics = F(u_θ) - f]
+    C --> D3[R_bc = B(u_θ) - g]
+    C --> D4[R_ic = I(u_θ) - h]
 
-    D1 --> E[Weighted Residuals: R];
-    D2 --> E;
-    D3 --> E;
-    D4 --> E;
+    D1 --> E[Weighted Residual Vector R]
+    D2 --> E
+    D3 --> E
+    D4 --> E
 
-    E --> F[Jacobian J = dR / dTheta];
-    F --> G[Optimization using TRF];
-
-
+    E --> F[Jacobian J = ∂R/∂θ]
+    F --> G[TRF Optimization]
+    G --> H[Updated Parameters θ*]
+```
 
 ## Citation
 If you use RJ-PINNs in your research, please cite:
