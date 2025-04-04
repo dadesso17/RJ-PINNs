@@ -34,6 +34,25 @@ flowchart TD
     F --> G["Optimization using TRF"]
 ```
 
+
+
+flowchart TD
+    A["Input: Model inputs and observations"] --> B["Hidden Layers"]
+    B --> C["Model Prediction"]
+    
+    C --> D1["Data Difference"]
+    C --> D2["Physics Constraint"]
+    C --> D3["Boundary Condition"]
+    C --> D4["Initial Condition"]
+    
+    D1 --> E["Combined Residual"]
+    D2 --> E
+    D3 --> E
+    D4 --> E
+    
+    E --> F["Compute Sensitivity"]
+    F --> G["Optimization Process"]
+
 ## Citation
 If you use RJ-PINNs in your research, please cite:
 
