@@ -16,26 +16,31 @@ For more information, please refer to the following:(https://github.com/dadesso1
 
 *Table: Comparison between Traditional PINNs and RJ-PINNs*
 
-## RJ-PINNs Diagram
-```mermaid
-graph TD
-    A[Input: x, t] --> B[Neural Network]
-    B --> C[Prediction: u_θ]
-    
-    C --> D1[R_data = u_θ - u_obs]
-    C --> D2[R_physics = F(u_θ) - f]
-    C --> D3[R_bc = B(u_θ) - g]
-    C --> D4[R_ic = I(u_θ) - h]
+Input: (x, t, u_obs(x_Ω, t), g(x_∂Ω, t), h(x_Ω, t₀))
+      |
+      v
++----------------+
+| Hidden Layers  |
++----------------+
+      |
+      v
+Output: u_θ(x, t)
+      |
+      |------> Residuals:
+      |         ├── R_data:     u_θ - u_obs
+      |         ├── R_physics:  F(u_θ, ∇u_θ, ...) - f
+      |         ├── R_bc:       B(u_θ|∂Ω) - g
+      |         └── R_ic:       I(u_θ|_{t₀}, ∂ₜu_θ|_{t₀}, ...) - h
+      |
+      v
+Weighted Residual: R(θ)
+      |
+      v
+Jacobian: J = ∂R / ∂θ
+      |
+      v
+Optimization using TRF
 
-    D1 --> E[Weighted Residual Vector R]
-    D2 --> E
-    D3 --> E
-    D4 --> E
-
-    E --> F[Jacobian J = ∂R/∂θ]
-    F --> G[TRF Optimization]
-    G --> H[Updated Parameters θ*]
-```
 
 ## Citation
 If you use RJ-PINNs in your research, please cite:
