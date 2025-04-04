@@ -16,30 +16,25 @@ For more information, please refer to the following:(https://github.com/dadesso1
 
 *Table: Comparison between Traditional PINNs and RJ-PINNs*
 
-Input: (x, t, u_obs(x_Ω, t), g(x_∂Ω, t), h(x_Ω, t₀))
-      |
-      v
-+----------------+
-| Hidden Layers  |
-+----------------+
-      |
-      v
-Output: u_θ(x, t)
-      |
-      |------> Residuals:
-      |         ├── R_data:     u_θ - u_obs
-      |         ├── R_physics:  F(u_θ, ∇u_θ, ...) - f
-      |         ├── R_bc:       B(u_θ|∂Ω) - g
-      |         └── R_ic:       I(u_θ|_{t₀}, ∂ₜu_θ|_{t₀}, ...) - h
-      |
-      v
-Weighted Residual: R(θ)
-      |
-      v
-Jacobian: J = ∂R / ∂θ
-      |
-      v
-Optimization using TRF
+```mermaid
+flowchart TD
+    A[Input: (x, t, u_obs(x_Ω, t), g(x_∂Ω, t), h(x_Ω, t₀))] --> B[Hidden Layers]
+    B --> C[Output: u_θ(x, t)]
+
+    C --> D1[R_data: u_θ - u_obs]
+    C --> D2[R_physics: F(u_θ, ∇u_θ, ...) - f]
+    C --> D3[R_bc: B(u_θ|∂Ω) - g]
+    C --> D4[R_ic: I(u_θ|_{t₀}, ∂ₜu_θ|_{t₀}, ...) - h]
+
+    D1 --> E[Weighted Residual: R(θ)]
+    D2 --> E
+    D3 --> E
+    D4 --> E
+
+    E --> F[Jacobian: J = ∂R / ∂θ]
+    F --> G[Optimization using TRF]
+```
+
 
 
 ## Citation
