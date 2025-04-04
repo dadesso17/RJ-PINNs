@@ -18,20 +18,20 @@ For more information, please refer to the following:(https://github.com/dadesso1
 
 ```mermaid
 flowchart TD
-    A[Input: (x, t, u_obs(x_Ω, t), g(x_∂Ω, t), h(x_Ω, t₀))] --> B[Hidden Layers]
-    B --> C[Output: u_θ(x, t)]
+    A[Input: (x, t, u_obs, g, h)] --> B[Hidden Layers]
+    B --> C[Output: u_theta(x, t)]
 
-    C --> D1[R_data: u_θ - u_obs]
-    C --> D2[R_physics: F(u_θ, ∇u_θ, ...) - f]
-    C --> D3[R_bc: B(u_θ|∂Ω) - g]
-    C --> D4[R_ic: I(u_θ|_{t₀}, ∂ₜu_θ|_{t₀}, ...) - h]
+    C --> D1[R_data: u_theta - u_obs]
+    C --> D2[R_physics: F(u_theta, grad u_theta, ...) - f]
+    C --> D3[R_bc: B(u_theta at boundary) - g]
+    C --> D4[R_ic: I(u_theta at t0, du_theta/dt at t0, ...) - h]
 
-    D1 --> E[Weighted Residual: R(θ)]
+    D1 --> E[Weighted Residual: R(theta)]
     D2 --> E
     D3 --> E
     D4 --> E
 
-    E --> F[Jacobian: J = ∂R / ∂θ]
+    E --> F[Jacobian: dR/dtheta]
     F --> G[Optimization using TRF]
 ```
 
