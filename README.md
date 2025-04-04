@@ -34,8 +34,6 @@ flowchart TD
     F --> G["Optimization using TRF"]
 ```
 
-
-
 flowchart TD
     A["Input: Model inputs and observations"] --> B["Hidden Layers"]
     B --> C["Model Prediction"]
@@ -52,6 +50,8 @@ flowchart TD
     
     E --> F["Compute Sensitivity"]
     F --> G["Optimization Process"]
+
+
 ## Citation
 If you use RJ-PINNs in your research, please cite:
 
