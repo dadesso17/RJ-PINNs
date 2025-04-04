@@ -15,25 +15,22 @@ For more information, please refer to the following:(https://github.com/dadesso1
 | **Convergence** | Not guaranteed | Robust convergence |
 
 *Table: Comparison between Traditional PINNs and RJ-PINNs*
-
-```mermaid
 flowchart TD
-    A[Input: (x, t, u_obs, g, h)] --> B[Hidden Layers]
-    B --> C[Output: u_theta(x, t)]
+    A["Input: (x, t, u_obs, g, h)"] --> B["Hidden Layers"]
+    B --> C["Output: u_theta(x, t)"]
 
-    C --> D1[R_data: u_theta - u_obs]
-    C --> D2[R_physics: F(u_theta, grad u_theta, ...) - f]
-    C --> D3[R_bc: B(u_theta at boundary) - g]
-    C --> D4[R_ic: I(u_theta at t0, du_theta/dt at t0, ...) - h]
+    C --> D1["R_data: u_theta - u_obs"]
+    C --> D2["R_physics: F(u_theta, grad u_theta, ...) - f"]
+    C --> D3["R_bc: B(u_theta at boundary) - g"]
+    C --> D4["R_ic: I(u_theta at t0, du_theta/dt at t0, ...) - h"]
 
-    D1 --> E[Weighted Residual: R(theta)]
+    D1 --> E["Weighted Residual: R(theta)"]
     D2 --> E
     D3 --> E
     D4 --> E
 
-    E --> F[Jacobian: dR/dtheta]
-    F --> G[Optimization using TRF]
-```
+    E --> F["Jacobian: dR/dtheta"]
+    F --> G["Optimization using TRF"]
 
 
 
