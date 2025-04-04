@@ -16,7 +16,7 @@ For more information, please refer to the following:(https://github.com/dadesso1
 
 *Table: Comparison between Traditional PINNs and RJ-PINNs*
 
-    
+  ## RJ-PINNs Diagram  
     <p align="center">
   <img src="./im.png" width="800">
 </p>
