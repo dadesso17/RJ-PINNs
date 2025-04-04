@@ -15,6 +15,7 @@ For more information, please refer to the following:(https://github.com/dadesso1
 | **Convergence** | Not guaranteed | Robust convergence |
 
 *Table: Comparison between Traditional PINNs and RJ-PINNs*
+```mermaid
 flowchart TD
     A["Input: (x, t, u_obs, g, h)"] --> B["Hidden Layers"]
     B --> C["Output: u_theta(x, t)"]
@@ -31,8 +32,7 @@ flowchart TD
 
     E --> F["Jacobian: dR/dtheta"]
     F --> G["Optimization using TRF"]
-
-
+```
 
 ## Citation
 If you use RJ-PINNs in your research, please cite:
