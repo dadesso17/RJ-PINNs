@@ -232,13 +232,16 @@ class RJ_PINNs:
      #print(r.shape)
      loss = tf.reduce_sum(tf.square(r)).numpy()
      params = p[-2:]
-     error1 = np.abs(params - 0.05)/0.05*100
-     #error2 = np.abs(p2- 0.05)/0.05 * 100
+     p1,p2=p[-2],p[-1]
+     error1 = np.abs(p1 - 1.0)/100
+     error2 = np.abs(p2- 0.003183)/0.003183 * 100
      self.err_l1.append(error1)
-     #self.err_l2.append(error2)
+     self.err_l2.append(error2)
 
      self.loss_hist.append(loss)
-     self.param_hist1.append(p[-1:])
+     self.param_hist1.append(p[-2:])
+     self.param_hist2.append(p[-1:])
+
      self.iteration_hist.append(self.iteration)
 
      if print_loss and self.iteration % 10 == 0:
@@ -285,10 +288,11 @@ class RJ_PINNs:
         self.set_weights(result.x)
         np.savez('heat.npz',
                  p1=self.param_hist1,
+                 p2=self.param_hist2,
                  err1=self.err_l1,
                  loss_hist=self.loss_hist,
                  iteration_hist=self.iteration_hist)
-        print("Optimization complete. Results saved to result.npz.")
+        print("Optimization complete. Results saved to Burgers.npz.")
         print("Optimized params:", result.x[-1:])
 
     def predict(self, X_star):
@@ -335,7 +339,7 @@ if __name__ == "__main__":
     nu = 0.01 / np.pi#true value
     lambda_1=1.0#true value
     N_u = 500
-    layers = [2,20,20, 1]
+    layers = [2,20,20,20,20,20, 1]
     data = np.load('./Burgers.npz')
     x = data['x']
     t = data['t']
