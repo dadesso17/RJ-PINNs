@@ -136,7 +136,6 @@ class RJ_PINNs:
     def neural_net(self, X, weights, biases):
         num_layers = len(weights) + 1
         H = X
-        #H = 2.0 * (X - self.lb) / (self.ub - self.lb) - 1.0
 
         for l in range(num_layers - 2):
             W = weights[l]
@@ -338,11 +337,11 @@ def plot_specific_slices(x, y, Exact, u_pred):
 
 
 if __name__ == "__main__":
-    N_u = 500
+    N_u = 1000
     n=2
     k=np.sqrt(n*np.pi**2+1)#true value
     #k=2*np.pi*n
-    layers = [2, 20,20,1]
+    layers = [2, 20,20,20,1]
 
     x = np.linspace(0, 1, 200, dtype=np.float32)
     y = np.linspace(0, 1, 100, dtype=np.float32)
