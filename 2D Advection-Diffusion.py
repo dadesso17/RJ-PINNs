@@ -149,7 +149,6 @@ class RJ_PINNs:
     def neural_net(self, X, weights, biases):
         num_layers = len(weights) + 1
         H = X
-        #H = 2.0 * (X - self.lb) / (self.ub - self.lb) - 1.0
 
         for l in range(num_layers - 2):
             W = weights[l]
@@ -375,8 +374,8 @@ def plot_3d_solutions(X, Y, T, Exact, u_pred):
 
 
 if __name__ == "__main__":
-    N_u = 500
-    layers = [3, 20,20,1]
+    N_u = 1000
+    layers = [3, 20,20,20,1]
 
     x = np.linspace(0, 6, 20, dtype=np.float32)
     y = np.linspace(0, 3, 20, dtype=np.float32)
