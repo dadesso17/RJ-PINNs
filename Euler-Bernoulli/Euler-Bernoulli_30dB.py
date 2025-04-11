@@ -320,7 +320,7 @@ class RJ_PINNs:
       #f_scale=0.1,
        )
         self.set_weights(result.x)
-        np.savez('benoui_30.npz',
+        np.savez('bernoulli_30.npz',
                  p1=self.param_hist1,
                  err1=self.err_l1,
                  loss_hist=self.loss_hist,
