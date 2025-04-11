@@ -322,7 +322,7 @@ class RJ_PINNs:
     )
 
       self.set_weights(result.x)
-      print("Optimized lambda parameters:", result.x[-1:])
+      print("Optimized lambda parameters:", result.x[-3:])
 
     def predict(self, X_star):
         X_star_tf = tf.convert_to_tensor(X_star, dtype=tf.float32)
