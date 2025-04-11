@@ -340,7 +340,7 @@ if __name__ == "__main__":
     lambda_1=1.0#true value
     N_u = 1000
     layers = [2,20,20,20, 1]
-    data = scipy.io.loadmat('/content/gdrive/My Drive/burger_01.mat')
+    data = np.load('./Burgers.npz')
     x = data['x']
     t = data['t']
     usol = data['usol']
@@ -379,7 +379,7 @@ if __name__ == "__main__":
 
     idx_bc1 = np.random.choice(X_bc1.shape[0], n_bc, replace=False)
     X_train_bc1 = X_bc1[idx_bc1, :]
-    noise = 0.04  
+    noise = 0.1 
     #u_train = u_train + noise*np.std(u_train)*np.random.randn(u_train.shape[0], u_train.shape[1])
       
     model = RJ_PINNs(X_u_train, u_train, X_train_bc0,X_train_bc1,X_train_ic,layers,init_method='xavier',lambda_init_method='constant')
