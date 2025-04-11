@@ -431,7 +431,7 @@ if __name__ == "__main__":
        return signal + noise
 
 
-    u_train=add_noise(u_train, 35)
+    u_train=add_noise(u_train, 25)
 
     model = RJ_PINNs(X_u_train, u_train, X_train_bc0,X_train_bc1,X_train_ic,layers,init_method='xavier',lambda_init_method='constant')
     model.train_trf()
