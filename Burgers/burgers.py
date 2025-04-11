@@ -293,7 +293,7 @@ class RJ_PINNs:
                  loss_hist=self.loss_hist,
                  iteration_hist=self.iteration_hist)
         print("Optimization complete. Results saved to Burgers.npz.")
-        print("Optimized params:", result.x[-1:])
+        print("Optimized params:", result.x[-2:])
 
     def predict(self, X_star):
         X_star_tf = tf.convert_to_tensor(X_star, dtype=tf.float32)
