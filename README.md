@@ -46,3 +46,5 @@ If you use RJ-PINNs in your research, please cite:
   year = {2025}
 
 }
+If you find this useful, consider ⭐ starring the repo or 📤 sharing it!
+
