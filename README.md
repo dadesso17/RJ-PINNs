@@ -1,4 +1,11 @@
-# [RJ-PINNs: A Breakthrough PINNs Framework](https://doi.org/10.5281/zenodo.15138086)
+# RJ-PINNs: Residual Jacobian Physics-Informed Neural Networks for Guaranteed Convergence
+
+[![Stars](https://img.shields.io/github/stars/dadesso17/RJ-PINNs?style=social)](https://github.com/dadesso17/RJ-PINNs/stargazers)
+[![Forks](https://img.shields.io/github/forks/dadesso17/RJ-PINNs?style=social)](https://github.com/dadesso17/RJ-PINNs/network/members)
+[![Issues](https://img.shields.io/github/issues/dadesso17/RJ-PINNs)](https://github.com/dadesso17/RJ-PINNs/issues)
+[![License](https://img.shields.io/github/license/dadesso17/RJ-PINNs)](https://github.com/dadesso17/RJ-PINNs/blob/main/LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/dadesso17/RJ-PINNs)](https://github.com/dadesso17/RJ-PINNs/commits/main)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15138086.svg)](https://doi.org/10.5281/zenodo.15138086)
 
 RJ-PINNs, introduced by Dadoyi Dadesso, is a pioneering framework using Jacobian-based least-squares (TRF) to directly minimize residuals without traditional loss functions. This method is the first to eliminate gradient optimizers in PINNs, offering unmatched robustness for inverse PDE problems.
 
@@ -35,7 +42,7 @@ If you use RJ-PINNs in your research, please cite:
   title = {{Residual Jacobian Physics-Informed Neural Networks (RJ-PINNs) for Guaranteed Convergence}},
   version = {1.0},
   publisher = {Zenodo},
-  doi = {10.5281/zenodo.15138085},
+  doi = { 10.5281/zenodo.15138086},
   year = {2025}
 
 }
