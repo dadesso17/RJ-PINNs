@@ -33,6 +33,14 @@ For more information, please refer to the following:https://github.com/dadesso17
   <img src="./im.png" width="800">
 </p>
 
+### ⚠️ Limitations
+
+While **RJ-PINNs** (Residual Jacobian Physics-Informed Neural Networks) offer improved convergence and stability compared to traditional PINNs, there are still some practical considerations:
+
+- **Simultaneous identification of multiple parameters** in inverse problems may **require manual intervention or heuristic tuning**.  
+  This is a common challenge in the broader PINN framework and not specific to RJ-PINNs.
+
+
 ## Citation
 If you use RJ-PINNs in your research, please cite:
 
