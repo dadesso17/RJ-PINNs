@@ -60,12 +60,13 @@ If you use RJ-PINNs in your research, please cite:
 
 ```bibtex
 @software{Dadesso_RJ-PINNs_2025,
-  author = {Dadesso, Dadoyi},
+  author = {Dadesso, D.},
+  year = {(2025)}
+
   title = {{Residual Jacobian Physics-Informed Neural Networks (RJ-PINNs) for Guaranteed Convergence}},
   version = {1.0},
   publisher = {Zenodo},
   doi = { 10.5281/zenodo.15138086},
-  year = {2025}
 
 }
 
