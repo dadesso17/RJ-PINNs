@@ -33,13 +33,28 @@ For more information, please refer to the following:https://github.com/dadesso17
   <img src="./im.png" width="800">
 </p>
 
-### ⚠️ Limitations
+## ⚠️ Important Consideration for RJ-PINNs Users
 
-While **RJ-PINNs** (Residual Jacobian Physics-Informed Neural Networks) offer improved convergence and stability compared to traditional PINNs, there are still some practical considerations:
+> 💡 **RJ-PINNs** improve convergence vs traditional PINNs — but **can still diverge** in some inverse problems. Read below 👇
 
-- **Simultaneous identification of multiple parameters** in inverse problems may **require manual intervention or heuristic tuning**.  
-  This is a common challenge in the broader PINN framework and not specific to RJ-PINNs.
+<details>
+<summary><strong>🔍 Why it happens & how to fix it</strong></summary>
 
+- In **inverse problems** (e.g., identifying multiple parameters) or **complex direct problems**, RJ-PINNs can **diverge**.
+- Cause: **Rapid decrease of the physics residual** `R_physics` leads to instability.
+
+### 🛠️ Recommended Fixes
+- 🔷 **Direct problems (no observed data):**
+  - Lower `w_p` (e.g., `1e-1`, `1e-2`).
+
+- 🔶 **Inverse problems:**
+  - Increase `w_d` on `R_data` (e.g., `1e2`, `1e3`).
+  - Lower `w_p` on `R_physics` (e.g., `1e-1`).
+
+- 🧠 **Alternative:** Use adaptive weighting / normalization strategies like in traditional PINNs.
+
+> 🧩 *This issue is common in PINNs — not specific to RJ-PINNs.*
+</details>
 
 ## Citation
 If you use RJ-PINNs in your research, please cite:
