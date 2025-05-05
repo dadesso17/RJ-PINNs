@@ -33,28 +33,27 @@ For more information, please refer to the following:https://github.com/dadesso17
   <img src="./im.png" width="800">
 </p>
 
-## ⚠️ Important Consideration for RJ-PINNs Users
+## ⚠️ Important: Practical Notes for Using RJ-PINNs
 
-> 💡 **RJ-PINNs** improve convergence vs traditional PINNs — but **can still diverge** in some inverse problems. Read below 👇
+> **RJ-PINNs** (Residual Jacobian Physics-Informed Neural Networks) offer better convergence and stability than traditional PINNs — but some practical issues can still arise.
 
-<details>
-<summary><strong>🔍 Why it happens & how to fix it</strong></summary>
+### 🚨 When Problems Occur
+- In **inverse problems** involving **multiple parameter identification**, or in some **complex direct problems**, **RJ-PINNs may still diverge**.
+- This is often caused by a **rapid decrease of the physics residual** `R_physics`, leading to **instability or divergence**.
 
-- In **inverse problems** (e.g., identifying multiple parameters) or **complex direct problems**, RJ-PINNs can **diverge**.
-- Cause: **Rapid decrease of the physics residual** `R_physics` leads to instability.
+### ✅ How to Fix It
+- **For direct problems without observed data:**
+  - 🔧 Decrease the weight `w_p` applied to `R_physics` (e.g., `1e-1`, `1e-2`, ...).
 
-### 🛠️ Recommended Fixes
-- 🔷 **Direct problems (no observed data):**
-  - Lower `w_p` (e.g., `1e-1`, `1e-2`).
+- **For inverse problems:**
+  - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e2`, `1e3`, ...).
+  - 🔽 Decrease the weight `w_p` on `R_physics` (e.g., set to `1e-1`).
 
-- 🔶 **Inverse problems:**
-  - Increase `w_d` on `R_data` (e.g., `1e2`, `1e3`).
-  - Lower `w_p` on `R_physics` (e.g., `1e-1`).
+- 🧠 **Alternative strategies:**
+  - Use **adaptive weighting techniques** or **normalization strategies** (as in traditional PINNs) to improve stability.
 
-- 🧠 **Alternative:** Use adaptive weighting / normalization strategies like in traditional PINNs.
+> 🧩 **Note:** This issue is common in the general PINN framework — it's **not specific to RJ-PINNs**.
 
-> 🧩 *This issue is common in PINNs — not specific to RJ-PINNs.*
-</details>
 
 ## Citation
 If you use RJ-PINNs in your research, please cite:
