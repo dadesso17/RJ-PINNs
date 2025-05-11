@@ -42,10 +42,10 @@ For more information, please refer to the following:https://github.com/dadesso17
 
 ### ✅ How to Fix It
 - **For direct problems without observed data:**
-  - 🔧 Decrease the weight `w_p` applied to `R_physics` (e.g., `1e-1`, `1e-2`, ...).
+  - 🔧 Decrease the weight `w_p` applied to `R_physics` (e.g., `1e-3`).
 
 - **For inverse problems:**
-  - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e2`, `1e3`, ...).
+  - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e4`,).
   - 🔽 Decrease the weight `w_p` on `R_physics` (e.g., set to `1e-1`).
 
 - 🧠 **Alternative strategies:**
