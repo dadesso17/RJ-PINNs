@@ -169,7 +169,7 @@ def update_weights(residuals):
         weights[name] = np.clip(10**exponent, 1e-6, 1e6)
     
     return weights
-
+```
 
 ## Citation
 If you use RJ-PINNs in your research, please cite:
