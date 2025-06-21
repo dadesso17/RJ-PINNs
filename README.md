@@ -136,12 +136,12 @@ The weighted residuals will always satisfy:
 w_i * |R_i| ≤ 10^(target_order)
 
 ### Parameter Guide
-| Parameter       | Typical Value | Effect                          |
-|-----------------|---------------|----------------------------------|
-| target_order    | -3            | Balances residuals around 0.001  |
-| eta (adaptation)| 0.1           | Controls adjustment speed        |
-| min_weight      | 1e-6          | Prevents weights from vanishing  |
-| max_weight      | 1e6           | Prevents exploding weights       |
+| Parameter       | Typical Value   | Effect                          |
+|-----------------|---------------  |----------------------------------|
+| target_order    | -3              | Balances residuals around 0.001  |
+| eta (adaptation)| [0,1]           | Controls adjustment speed        |
+| min_weight      | 1e-6            | Prevents weights from vanishing  |
+| max_weight      | 1e6             | Prevents exploding weights       |
 
 ## Why This Works
 
@@ -162,9 +162,15 @@ def update_weights(residuals):
     min_order = min(current_orders.values())
     
     for name, order in current_orders.items():
-        exponent = 0.1 * (order - (-3))  # eta=0.1, target=-3
-        weights[name] = np.clip(10**exponent, 1e-6, 1e6)
+    # Compute the exponent based on the difference from the target order (-3)
+    # eta = 0.1 should be chosen within [0, 1] depending on the problem
+    # target = -3 can be increased or decreased depending on your objective
+    exponent = 0.1 * (order - (-3))  
     
+    # Compute the adaptive weight with clipping to avoid extreme values
+    # The bounds (1e-6, 1e6) can be adjusted depending on the sensitivity and scale of your problem
+    weights[name] = np.clip(10 ** exponent, 1e-6, 1e6)
+
     return weights
 ```
 
