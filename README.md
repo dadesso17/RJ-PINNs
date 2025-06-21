@@ -47,7 +47,7 @@ For more information, please refer to the following:https://github.com/dadesso17
   - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e4`,).
   - 🔽 Decrease the weight `w_p` on `R_physics` (e.g., set to `1e-1`).
 
-## 🧠  Advanced Stability of Adaptive Weights in Residual Jacobian Physics-Informed Neural Networks for Guaranteed Convergence
+## 🧠 Lemma: Advanced Stability of Adaptive Weights in Residual Jacobian Physics-Informed Neural Networks for Guaranteed Convergence
   
   
 
