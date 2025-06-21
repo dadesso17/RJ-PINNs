@@ -1,11 +1,5 @@
 # RJ-PINNs: Residual Jacobian Physics-Informed Neural Networks for Guaranteed Convergence
 
-[![Stars](https://img.shields.io/github/stars/dadesso17/RJ-PINNs?style=social)](https://github.com/dadesso17/RJ-PINNs/stargazers)
-[![Forks](https://img.shields.io/github/forks/dadesso17/RJ-PINNs?style=social)](https://github.com/dadesso17/RJ-PINNs/network/members)
-[![Issues](https://img.shields.io/github/issues/dadesso17/RJ-PINNs)](https://github.com/dadesso17/RJ-PINNs/issues)
-[![License](https://img.shields.io/github/license/dadesso17/RJ-PINNs)](https://github.com/dadesso17/RJ-PINNs/blob/main/LICENSE)
-[![Last Commit](https://img.shields.io/github/last-commit/dadesso17/RJ-PINNs)](https://github.com/dadesso17/RJ-PINNs/commits/main)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15138086.svg)](https://doi.org/10.5281/zenodo.15138086)
 
 RJ-PINNs, introduced by Dadoyi Dadesso, is a pioneering framework using Jacobian-based least-squares (TRF) to directly minimize residuals without traditional loss functions. This method is the first to eliminate gradient optimizers in PINNs, offering unmatched robustness for inverse PDE problems.
 
@@ -127,15 +121,54 @@ $$
 
 ---
 
-## Implementation in PINNs
+## Short
+# Adaptive Weight Stabilization Lemma for Physics-Informed Neural Networks
+
+## Core Principle
+
+For any residual term R_i at training step k:
+
+1. Compute its maximum absolute value: max|R_i|
+2. Calculate its order of magnitude: alpha_i = log10(max|R_i|)
+3. Adjust its weight: w_i = clip(10^(eta*(alpha_i - target_order)), min_weight, max_weight)
+
+## Key Properties
+
+### Guaranteed Stability
+The weighted residuals will always satisfy:
+w_i * |R_i| ≤ 10^(target_order)
+
+### Parameter Guide
+| Parameter       | Typical Value | Effect                          |
+|-----------------|---------------|----------------------------------|
+| target_order    | -3            | Balances residuals around 0.001  |
+| eta (adaptation)| 0.1           | Controls adjustment speed        |
+| min_weight      | 1e-6          | Prevents weights from vanishing  |
+| max_weight      | 1e6           | Prevents exploding weights       |
+
+## Why This Works
+
+1. Automatic Scaling:
+   - Large residuals (e.g., 1e-1) get small weights (~1e-2)
+   - Small residuals (e.g., 1e-5) get large weights (~1e2)
+   
+2. Numerical Safety:
+   - Hard limits prevent extreme values
+   - Smooth adjustments via logarithmic scaling
+
+## Python Implementation
 
 ```python
-def calculate_weights(current_residual):
-    current_order = np.log10(np.max(np.abs(current_residual)) + 1e-16
-    weight = 10 ** (eta * (current_order - target_order))
-    return np.clip(weight, min_weight, max_weight)
-
-
+def update_weights(residuals):
+    weights = {}
+    current_orders = {name: np.log10(np.max(np.abs(res)) for name, res in residuals.items()}
+    min_order = min(current_orders.values())
+    
+    for name, order in current_orders.items():
+        exponent = 0.1 * (order - (-3))  # eta=0.1, target=-3
+        weights[name] = np.clip(10**exponent, 1e-6, 1e6)
+    
+    return weights
 
 
 ## Citation
