@@ -26,7 +26,7 @@ For more information, please refer to the following:https://github.com/dadesso17
     <p align="center">
   <img src="./im.png" width="800">
 </p>
-## ⚠️ Important: Practical Notes for Using RJ-PINNs
+#### ⚠️ Important: Practical Notes for Using RJ-PINNs
 
 > **RJ-PINNs** (Residual Jacobian Physics-Informed Neural Networks) offer better convergence and stability than traditional PINNs — but some practical issues can still arise.
 
