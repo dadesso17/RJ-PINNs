@@ -58,6 +58,85 @@ For more information, please refer to the following:https://github.com/dadesso17
 
 > 🧩 **Note:** This issue is common in the general PINN framework — it's **not specific to RJ-PINNs**.
 
+# Lemma: Stability of Adaptive Weights in Physics-Informed Neural Networks
+
+## Formal Statement
+
+Let:
+- $R_i^{(k)}$ be the residual of type $i$ at training step $k$
+- $\|R_i^{(k)}\|_\infty = \max|R_i^{(k)}(x,t)|$ be the infinity norm
+
+Define the **logarithmic magnitude**:
+$$
+\alpha_i^{(k)} = \log_{10}\left(\|R_i^{(k)}\|_\infty + \epsilon\right)
+\quad (\epsilon=10^{-16}\text{ for numerical stability})
+$$
+
+The **adaptive weights** are computed as:
+$$
+w_i^{(k)} = \text{clip}\left(
+10^{\eta(\alpha_i^{(k)} - \alpha_{\text{target}})},\ 
+w_{\min},\ 
+w_{\max}
+\right)
+$$
+
+**Where**:
+- $\eta \in (0,1]$: Adaptation rate (typically 0.1)
+- $\alpha_{\text{target}}$: Target order (e.g., -3 for $10^{-3}$)
+- $[w_{\min}, w_{\max}]$: Weight bounds (e.g., $[10^{-6}, 10^6]$)
+
+**Then**:
+$$
+\limsup_{k \to \infty} \left|w_i^{(k)} R_i^{(k)}\right| \leq 10^{\alpha_{\text{target}}}
+\quad \forall i
+$$
+
+---
+
+## Physical Interpretation
+
+| Property            | Description                                                                 |
+|---------------------|----------------------------------------------------------------------------|
+| **Balance**         | Prevents any single residual from dominating the loss function              |
+| **Automatic Scaling** | Dynamically adjusts weights to maintain target scale                      |
+| **Numerical Stability** | Clipping avoids extreme weight values that could destabilize training    |
+
+---
+
+## Proof Sketch
+
+1. **Boundedness**:
+   Since $\|R_i^{(k)}\|_\infty \leq C$ (by problem physics), then:
+   $$
+   \alpha_i^{(k)} \leq \log_{10}(C + \epsilon)
+   $$
+
+2. **Weight Behavior**:
+   - When $\alpha_i^{(k)} \gg \alpha_{\text{target}}$:
+     $$ w_i^{(k)} \nearrow w_{\max} \text{ exponentially} $$
+   - When $\alpha_i^{(k)} \ll \alpha_{\text{target}}$:
+     $$ w_i^{(k)} \searrow w_{\min} \text{ exponentially} $$
+
+3. **Product Control**:
+   The weighted residual satisfies:
+   $$
+   |w_i^{(k)} R_i^{(k)}| \approx 10^{\eta(\alpha_i^{(k)}-\alpha_{\text{target}})} \cdot 10^{\alpha_i^{(k)}}} = 10^{(1+\eta)\alpha_i^{(k)} - \eta\alpha_{\text{target}}}}
+   $$
+   which remains bounded near $10^{\alpha_{\text{target}}}$ when $\eta \leq 1$.
+
+---
+
+## Implementation in PINNs
+
+```python
+def calculate_weights(current_residual):
+    current_order = np.log10(np.max(np.abs(current_residual)) + 1e-16
+    weight = 10 ** (eta * (current_order - target_order))
+    return np.clip(weight, min_weight, max_weight)
+
+
+
 
 ## Citation
 If you use RJ-PINNs in your research, please cite:
