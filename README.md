@@ -73,7 +73,7 @@ w_{\max}
 $$
 
 **Where**:
-- $\eta \in (0,1]$: Adaptation rate (typically 0.1)
+- $\eta \in [0,1]$: Adaptation rate 
 - $\alpha_{\text{target}}$: Target order (e.g., -3 for $10^{-3}$)
 - $[w_{\min}, w_{\max}]$: Weight bounds (e.g., $[10^{-6}, 10^6]$)
 
@@ -118,7 +118,7 @@ $$
 
 ---
 
-## Short
+### Short
 
 ## Core Principle
 
