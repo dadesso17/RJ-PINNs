@@ -47,12 +47,10 @@ For more information, please refer to the following:https://github.com/dadesso17
   - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e4`,).
   - 🔽 Decrease the weight `w_p` on `R_physics` (e.g., set to `1e-1`).
 
-- 🧠 **Alternative strategies:**
-  - Use **adaptive weighting techniques** or **normalization strategies** (as in traditional PINNs) to improve stability.
-
-> 🧩 **Note:** This issue is common in the general PINN framework — it's **not specific to RJ-PINNs**.
-
-# Lemma: Stability of Adaptive Weights in Physics-Informed Neural Networks
+- 🧠 **Advanced Stability of Adaptive Weights in Residual Jacobian Physics-Informed Neural Networks for Guaranteed Convergence
+:**
+  
+# Lemma: Stability of Adaptive Weights in RJ-PINNs
 
 ## Formal Statement
 
@@ -122,7 +120,6 @@ $$
 ---
 
 ## Short
-# Adaptive Weight Stabilization Lemma for Physics-Informed Neural Networks
 
 ## Core Principle
 
