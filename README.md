@@ -89,7 +89,7 @@ $$
 
 | Property            | Description                                                                 |
 |---------------------|----------------------------------------------------------------------------|
-| **Balance**         | Prevents any single residual from dominating the loss function              |
+| **Balance**         | Prevents any single residual from dominating             |
 | **Automatic Scaling** | Dynamically adjusts weights to maintain target scale                      |
 | **Numerical Stability** | Clipping avoids extreme weight values that could destabilize training    |
 
