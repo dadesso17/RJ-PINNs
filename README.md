@@ -145,8 +145,8 @@ w_i * |R_i| ≤ 10^(target_order)
 ## Why This Works
 
 1. Automatic Scaling:
-   - Large residuals (e.g., 1e-1) get small weights (~1e-2)
-   - Small residuals (e.g., 1e-5) get large weights (~1e2)
+   - Large residuals (e.g., 1e-1) get large weights 
+   - Small residuals (e.g., 1e-5) get  small weights 
    
 2. Numerical Safety:
    - Hard limits prevent extreme values
