@@ -36,16 +36,16 @@ For more information, please refer to the following:https://github.com/dadesso17
 
 ### ✅ How to Fix It
 - **For direct problems without observed data:**
-  - 🔧 Decrease the weight `w_p` applied to `R_physics` (e.g., `1e-3`).
+  - 🔧 Decrease the weight `w_p` applied to `R_physics` (e.g., `1e-1` ...).
   - - **For direct problems with observed data:**
-  - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e4`,).
+  - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e1`...).
   - 🔽 Decrease the weight `w_p` on `R_physics` (e.g., set to `1e-1...`).
 
 
 
 - **For inverse problems:**
-  - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e4`,).
-  - 🔽 Decrease the weight `w_p` on `R_physics` (e.g., set to `1e-1`).
+  - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e1`....).
+  - 🔽 Decrease the weight `w_p` on `R_physics` (e.g., set to `1e-1...).
 
 ## 🧠  Stability of Adaptive Weights in Residual Jacobian Physics-Informed Neural Networks for Guaranteed Convergence
   
