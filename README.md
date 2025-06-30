@@ -49,6 +49,8 @@ For more information, please refer to the following:https://github.com/dadesso17
 
 ## 🧠  Stability of Adaptive Weights in Residual Jacobian Physics-Informed Neural Networks for Guaranteed Convergence
   
+
+The stability and convergence of RJ-PINNs can be influenced by the choice of weights \( w_p \) and \( w_d \). Adaptive weighting approaches may be based on both parameters to improve training dynamics and ensure better convergence behavior.
   
 
 ## Citation
