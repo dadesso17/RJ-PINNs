@@ -64,7 +64,7 @@ If you use RJ-PINNs in your research, please cite:
   title = {{Residual Jacobian Physics-Informed Neural Networks (RJ-PINNs) for Guaranteed Convergence}},
   version = {1.0},
   publisher = {Zenodo},
-  doi = { 10.5281/zenodo.15138086},
+  doi = { [10.5281/zenodo.15138086](https://doi.org/10.5281/zenodo.15138086)},
 
 }
 
