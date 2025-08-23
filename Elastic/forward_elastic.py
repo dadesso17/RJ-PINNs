@@ -278,7 +278,6 @@ class RJ_PINNs:
             jac=lambda p: self.J(p),
             x0=p,
             method='trf',
-            xtol=1e0
             #tr_solver='exact',
             #max_nfev=max_iter,
             #verbose=2
