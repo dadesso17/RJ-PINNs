@@ -379,7 +379,7 @@ if __name__ == "__main__":
 
     idx_bc1 = np.random.choice(X_bc1.shape[0], n_bc, replace=False)
     X_train_bc1 = X_bc1[idx_bc1, :]
-    noise = 0.04 #    To increase the noise effect, one can either reduce the number of layers (e.g., to 2) or decrease the training data (e.g.Nu​=500). This helps RJ-PINNs converge more quickly.
+    noise = 0.1 #   
 
 
     #Add Noise
