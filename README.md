@@ -55,15 +55,5 @@ For more information, please refer to the following:https://github.com/dadesso17
 ## Citation
 If you use RJ-PINNs in your research, please cite:
 
-```bibtex
-@software{Dadesso_RJ-PINNs_2025,
-  author = {Dadesso, D.},
-  year = {(2025)},
-
-  title = {{Residual Jacobian Physics-Informed Neural Networks (RJ-PINNs) for Guaranteed Convergence}},
-  version = {1.0},
-  publisher = {Zenodo},
-  doi = { https://doi.org/10.5281/zenodo.15138086},
-
-}
+ Dadesso, Dadoyi, Residual Jacobian Physics-Informed Neural Networks (Rj-Pinns) for Guaranteed Convergence. Available at SSRN: https://ssrn.com/abstract=5403346 or http://dx.doi.org/10.2139/ssrn.5403346 
 
