@@ -30,22 +30,18 @@ For more information, please refer to the following:https://github.com/dadesso17
 
 > **RJ-PINNs** (Residual Jacobian Physics-Informed Neural Networks) offer better convergence and stability than traditional PINNs — but some practical issues can still arise.
 
-### 🚨 When Problems Occur
-- In **inverse problems** involving **multiple parameter identification**, or in some **complex direct problems**, **RJ-PINNs may still diverge**.
-- This is often caused by a **rapid decrease of the physics residual** `R_physics`, leading to **instability or divergence**.
 
-### ✅ How to Fix It
-- **For direct problems without observed data:**
-  - 🔧 Decrease the weight `w_p` applied to `R_physics` (e.g., `1e-1` ...).
-  - - **For direct problems with observed data:**
-  - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e1`...).
-  - 🔽 Decrease the weight `w_p` on `R_physics` (e.g., set to `1e-1...`).
-
+- **For direct problems:**
+- It is recommended to apply a non-dimensionalization technique, especially when the physical parameters have large magnitudes.
+- RJ-PINNs can be sensitive to boundary conditions.
+  
 
 
 - **For inverse problems:**
+- 
   - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e1`....).
   - 🔽 Decrease the weight `w_p` on `R_physics` (e.g., set to `1e-1...).
+    NB: RJ-PINNs are generally reliable when identifying a single parameter. However, the simultaneous identification of multiple parameters may require manual tuning. The convergence efficiency of RJ-PINNs in inverse problems remains an open question.
 
 ## 🧠  Stability of Adaptive Weights in Residual Jacobian Physics-Informed Neural Networks
   
