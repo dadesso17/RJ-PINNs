@@ -18,7 +18,7 @@ For more information, please refer to the following:https://github.com/dadesso17
 | **Gradient** | Compute ∇L(θ) | Compute ∇R(θ) |
 | **Optimization** | Use gradient-based optimizers (e.g., Adam, L-BFGS) | Use least-squares optimizer (e.g., TRF) |
 | **Implementation** | Define a loss function and its gradient | Define residuals and their Jacobian |
-| **Convergence** | Not guaranteed | Improved convergence |
+| **Convergence** | Not guaranteed | Improved|
 
 *Table: Comparison between Traditional PINNs and RJ-PINNs*
 
