@@ -1,4 +1,4 @@
-# RJ-PINNs: Residual Jacobian Physics-Informed Neural Networks for Guaranteed Convergence
+# RJ-PINNs: Residual Jacobian Physics-Informed Neural Networks 
 
 
 RJ-PINNs, introduced by Dadoyi Dadesso, is a pioneering framework using Jacobian-based least-squares (TRF) to directly minimize residuals without traditional loss functions. This method is the first to eliminate gradient optimizers in PINNs, offering unmatched robustness for inverse PDE problems.
@@ -47,7 +47,7 @@ For more information, please refer to the following:https://github.com/dadesso17
   - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e1`....).
   - 🔽 Decrease the weight `w_p` on `R_physics` (e.g., set to `1e-1...).
 
-## 🧠  Stability of Adaptive Weights in Residual Jacobian Physics-Informed Neural Networks for Guaranteed Convergence
+## 🧠  Stability of Adaptive Weights in Residual Jacobian Physics-Informed Neural Networks
   
 
   
