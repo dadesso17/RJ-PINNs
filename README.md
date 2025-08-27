@@ -37,11 +37,13 @@ For more information, please refer to the following:https://github.com/dadesso17
   
 
 
-- **For inverse problems:**
+**For inverse problems:**
+*Instability can occur when attempting to identify multiple parameters simultaneously. Possible mitigation strategies include*
 - 
   - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e1`....).
   - 🔽 Decrease the weight `w_p` on `R_physics` (e.g., set to `1e-1...).
-    NB: RJ-PINNs are generally reliable when identifying a single parameter. However, the simultaneous identification of multiple parameters may require manual tuning. The convergence efficiency of RJ-PINNs in inverse problems remains an open question.
+    *These adjustments, however, are problem-dependent.*
+NB: RJ-PINNs are generally reliable when identifying a single parameter. However, the simultaneous identification of multiple parameters may require manual tuning. The convergence efficiency of RJ-PINNs in inverse problems remains an open question.
 
 ## 🧠  Stability of Adaptive Weights in Residual Jacobian Physics-Informed Neural Networks
   
