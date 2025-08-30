@@ -32,7 +32,6 @@ For more information, please refer to the following:https://github.com/dadesso17
 
 
 - **For direct problems:**
-- It is recommended to apply a non-dimensionalization technique, especially when the physical parameters have large magnitudes.
 - RJ-PINNs can be sensitive to boundary conditions.
   
 
