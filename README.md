@@ -49,7 +49,7 @@ $$
 
 This acts as a **classical regularisation** in the deterministic sense,
 and simultaneously corresponds to **Gaussian priors** in a Bayesian sense,
-yielding a **MAP-type estimator** while keeping the standard **Gauss–Newton RJ-PINN framework** intact.
+yielding a **MAP-type estimator** while keeping the standard ** RJ-PINN framework** intact.
 
 ## Mathematical Formulation
 
@@ -65,7 +65,7 @@ R_{\text{BC/IC}} \\
 \end{bmatrix}
 $$
 
-The Gauss–Newton solver then minimizes:
+The Least squares optimizer then minimizes:
 
 $$
 \min_{\theta} \| R_{\text{aug}}(\theta) \|_2^2
@@ -87,7 +87,6 @@ r = tf.concat([r_data, r_physic, r_bc0, r_bc0_xx,
                rl1, rl2], axis=0)
 ```
 
-Place this content in your project **README.md** so it appears on the repository home page and on your GitHub Pages site if Pages is configured to use the root `README.md` as index.
 
 
 
