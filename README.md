@@ -39,6 +39,16 @@ For more information, please refer to the following:https://github.com/dadesso17
 **For inverse problems:**
 
 
+*Instability can occur when attempting to identify multiple parameters simultaneously. Possible mitigation strategies include*
+- 
+  - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e1`....).
+  - 🔽 Decrease the weight `w_p` on `R_physics` (e.g., set to `1e-1...).
+  - 
+    *These adjustments, however, are problem-dependent*
+    
+*NB: RJ-PINNs are generally reliable when identifying a single parameter. However, the simultaneous identification of multiple parameters may require manual tuning. The convergence efficiency of RJ-PINNs in inverse problems remains an open question*
+
+
 # RJ-PINNs Stability with Prior-Residuals
 
 As described in the article, RJ-PINNs may incorporate regularization or a prior-based uncertainty formulation to enhance convergence when solving inverse problems
@@ -96,7 +106,7 @@ self.prior_sigma2 = 1.0
 
 
 # Assume tf is TensorFlow and r_data, r_physic, etc. are existing residual tensors
-rl1 = (self.lambda_3 - self.prior_mu2) / self.prior_sigma2
+rl1 = (self.lambda_2 - self.prior_mu2) / self.prior_sigma2
 rl2 = (self.lambda_1 - self.prior_mu1) / self.prior_sigma1
 
 rl1 = tf.reshape(rl1, [-1, 1])
@@ -111,6 +121,7 @@ r = tf.concat([
     rl1,   rl2
 ], axis=0)
 
+'''
 
 
 
@@ -123,14 +134,11 @@ r = tf.concat([
 
 
 
-*Instability can occur when attempting to identify multiple parameters simultaneously. Possible mitigation strategies include*
-- 
-  - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e1`....).
-  - 🔽 Decrease the weight `w_p` on `R_physics` (e.g., set to `1e-1...).
-  - 
-    *These adjustments, however, are problem-dependent*
-    
-*NB: RJ-PINNs are generally reliable when identifying a single parameter. However, the simultaneous identification of multiple parameters may require manual tuning. The convergence efficiency of RJ-PINNs in inverse problems remains an open question*
+
+
+
+
+
 
 ## 🧠  Stability of Adaptive Weights in Residual Jacobian Physics-Informed Neural Networks
   
