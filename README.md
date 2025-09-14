@@ -126,6 +126,31 @@ r = tf.concat([
 
 
 
+```python
+# Assume tf is TensorFlow, r_data etc. are existing residual tensors
+rl1 = (lambda_3 - prior_mu2) / prior_sigma2
+rl2 = (lambda_1 - prior_mu1) / prior_sigma1
+
+rl1 = tf.reshape(rl1, [-1, 1])
+rl2 = tf.reshape(rl2, [-1, 1])
+
+# Combine residuals
+r = tf.concat([r_data, r_physic, r_bc0, r_bc0_xx,
+               r_bc1, r_bc1_xx, r_ic, r_ic_t,
+               rl1, rl2], axis=0)
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
