@@ -94,7 +94,7 @@ Suppose the true parameters are:
 ### Parameter Initialization
 As usual in RJ-PINNs, initialize the trainable parameters:
 
-```python
+'''python
 self.lambda1 = tf.Variable(1.0, dtype=tf.float32, trainable=True)
 self.lambda2 = tf.Variable(1.0, dtype=tf.float32, trainable=True)
 
@@ -120,7 +120,6 @@ r = tf.concat([
     r_ic,  r_ic_t,
     rl1,   rl2
 ], axis=0)
-
 '''
 
 
