@@ -83,45 +83,6 @@ $$
 \min_{\theta} \| R_{\text{aug}}(\theta) \|_2^2
 $$
 
-## Python Snippet
-
-Imagine you need to identify **λ₁** and **λ₂** simultaneously, and the standard RJ-PINNs training shows instability.  
-Suppose the true parameters are:
-
-* `lambda1_true = 1.0`  
-* `lambda2_true = 0.05`
-
-### Parameter Initialization
-As usual in RJ-PINNs, initialize the trainable parameters:
-
-# Initialize trainable physical parameters
-self.lambda1 = tf.Variable(1.0, dtype=tf.float32, trainable=True)
-self.lambda2 = tf.Variable(1.0, dtype=tf.float32, trainable=True)
-
-# Set prior means and standard deviations
-self.prior_mu1 = 1.0
-self.prior_sigma1 = 0.1
-
-self.prior_mu2 = 0.0
-self.prior_sigma2 = 1.0
-
-# Compute prior-residuals
-rl1 = (self.lambda2 - self.prior_mu2) / self.prior_sigma2
-rl2 = (self.lambda1 - self.prior_mu1) / self.prior_sigma1
-
-rl1 = tf.reshape(rl1, [-1, 1])
-rl2 = tf.reshape(rl2, [-1, 1])
-
-# Combine all residuals into augmented residual vector
-r = tf.concat([
-    r_data, r_physic,
-    r_bc0, r_bc0_xx,
-    r_bc1, r_bc1_xx,
-    r_ic,  r_ic_t,
-    rl1,   rl2
-], axis=0)
-
-
 
 
 
