@@ -94,25 +94,25 @@ Suppose the true parameters are:
 ### Parameter Initialization
 As usual in RJ-PINNs, initialize the trainable parameters:
 
-'''python
+# Initialize trainable physical parameters
 self.lambda1 = tf.Variable(1.0, dtype=tf.float32, trainable=True)
 self.lambda2 = tf.Variable(1.0, dtype=tf.float32, trainable=True)
 
+# Set prior means and standard deviations
 self.prior_mu1 = 1.0
 self.prior_sigma1 = 0.1
 
 self.prior_mu2 = 0.0
 self.prior_sigma2 = 1.0
 
-
-# Assume tf is TensorFlow and r_data, r_physic, etc. are existing residual tensors
-rl1 = (self.lambda_2 - self.prior_mu2) / self.prior_sigma2
-rl2 = (self.lambda_1 - self.prior_mu1) / self.prior_sigma1
+# Compute prior-residuals
+rl1 = (self.lambda2 - self.prior_mu2) / self.prior_sigma2
+rl2 = (self.lambda1 - self.prior_mu1) / self.prior_sigma1
 
 rl1 = tf.reshape(rl1, [-1, 1])
 rl2 = tf.reshape(rl2, [-1, 1])
 
-# Combine residuals
+# Combine all residuals into augmented residual vector
 r = tf.concat([
     r_data, r_physic,
     r_bc0, r_bc0_xx,
@@ -120,12 +120,6 @@ r = tf.concat([
     r_ic,  r_ic_t,
     rl1,   rl2
 ], axis=0)
-'''
-
-
-
-
-
 
 
 
