@@ -41,7 +41,10 @@ For more information, please refer to the following:https://github.com/dadesso17
 
 # RJ-PINNs Stability with Prior-Residuals
 
-As described in the article, RJ-PINNs may incorporate regularization or a prior-based uncertainty formulation to enhance convergence when solving inverse problems.
+As described in the article, RJ-PINNs may incorporate regularization or a prior-based uncertainty formulation to enhance convergence when solving inverse problems
+
+
+.
 $$
 \frac{\lambda_i - \mu_i}{\sigma_i}
 $$
