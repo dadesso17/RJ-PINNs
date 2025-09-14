@@ -96,8 +96,8 @@ self.prior_sigma2 = 1.0
 
 
 # Assume tf is TensorFlow and r_data, r_physic, etc. are existing residual tensors
-rl1 = (lambda_3 - prior_mu2) / prior_sigma2
-rl2 = (lambda_1 - prior_mu1) / prior_sigma1
+rl1 = (self.lambda_3 - self.prior_mu2) / self.prior_sigma2
+rl2 = (self.lambda_1 - self.prior_mu1) / self.prior_sigma1
 
 rl1 = tf.reshape(rl1, [-1, 1])
 rl2 = tf.reshape(rl2, [-1, 1])
