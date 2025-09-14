@@ -37,6 +37,71 @@ For more information, please refer to the following:https://github.com/dadesso17
 
 
 **For inverse problems:**
+
+
+# RJ-PINNs Stability with Prior-Residuals
+
+To enhance stability we append **prior-residuals** to the RJ-PINNs residual vector:
+
+$$
+\frac{\lambda_i - \mu_i}{\sigma_i}
+$$
+
+This acts as a **classical regularisation** in the deterministic sense,
+and simultaneously corresponds to **Gaussian priors** in a Bayesian sense,
+yielding a **MAP-type estimator** while keeping the standard **Gauss–Newton RJ-PINN framework** intact.
+
+## Mathematical Formulation
+
+The augmented residual vector is:
+
+$$
+R_{\text{aug}}(\theta) = \begin{bmatrix}
+R_{\text{data}} \\
+R_{\text{physics}} \\
+R_{\text{BC/IC}} \\
+\frac{\lambda_1 - \mu_1}{\sigma_1} \\
+\frac{\lambda_3 - \mu_2}{\sigma_2}
+\end{bmatrix}
+$$
+
+The Gauss–Newton solver then minimizes:
+
+$$
+\min_{\theta} \| R_{\text{aug}}(\theta) \|_2^2
+$$
+
+## Python Snippet
+
+```python
+# Assume tf is TensorFlow, r_data etc. are existing residual tensors
+rl1 = (lambda_3 - prior_mu2) / prior_sigma2
+rl2 = (lambda_1 - prior_mu1) / prior_sigma1
+
+rl1 = tf.reshape(rl1, [-1, 1])
+rl2 = tf.reshape(rl2, [-1, 1])
+
+# Combine residuals
+r = tf.concat([r_data, r_physic, r_bc0, r_bc0_xx,
+               r_bc1, r_bc1_xx, r_ic, r_ic_t,
+               rl1, rl2], axis=0)
+```
+
+Place this content in your project **README.md** so it appears on the repository home page and on your GitHub Pages site if Pages is configured to use the root `README.md` as index.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 *Instability can occur when attempting to identify multiple parameters simultaneously. Possible mitigation strategies include*
 - 
   - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e1`....).
