@@ -111,8 +111,8 @@ self.prior_mu2 = 0.0
 self.prior_sigma2 = 1.0
 
 # Compute prior-residuals
-rl1 = (self.lambda2 - self.prior_mu2) / self.prior_sigma2
-rl2 = (self.lambda1 - self.prior_mu1) / self.prior_sigma1
+rl1 = (self.lambda1 - self.prior_mu1) / self.prior_sigma1
+rl2 = (self.lambda2 - self.prior_mu2) / self.prior_sigma2
 
 rl1 = tf.reshape(rl1, [-1, 1])
 rl2 = tf.reshape(rl2, [-1, 1])
