@@ -119,11 +119,13 @@ rl2 = tf.reshape(rl2, [-1, 1])
 
 # Combine all residuals into augmented residual vector
 r = tf.concat([
-    r_data, r_physic,
-    r_bc0, r_bc0_xx,
-    r_bc1, r_bc1_xx,
-    r_ic,  r_ic_t,
-    rl1,   rl2
+    r_data,
+ r_physic,
+    r_bc,
+    
+    r_ic,
+    rl1,
+  rl2
 ], axis=0)
 
 
