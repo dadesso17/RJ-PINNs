@@ -73,7 +73,7 @@ R_{\text{data}} \\
 R_{\text{physics}} \\
 R_{\text{BC/IC}} \\
 \frac{\lambda_1 - \mu_1}{\sigma_1} \\
-\frac{\lambda_3 - \mu_2}{\sigma_2}
+\frac{\lambda_2 - \mu_2}{\sigma_2}
 \end{bmatrix}
 $$
 
