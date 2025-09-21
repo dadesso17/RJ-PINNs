@@ -157,4 +157,4 @@ r = tf.concat([
 ## Citation
 If you use RJ-PINNs in your research, please cite:
 
-Dadesso, D. (2025). Residual Jacobian Physics-Informed Neural Networks (RJ-PINNs) for improved convergence and stability. Zenodo. https://doi.org/10.5281/zenodo.16956061
+ Dadesso, Dadoyi, Residual Jacobian Physics-Informed Neural Networks (RJ-PINNs) for improved convergence and stability. Available at SSRN: https://ssrn.com/abstract=5506728 or http://dx.doi.org/10.2139/ssrn.5506728 
