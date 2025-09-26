@@ -39,14 +39,8 @@ For more information, please refer to the following:https://github.com/dadesso17
 **For inverse problems:**
 
 
-*Instability can occur when attempting to identify multiple parameters simultaneously. Possible mitigation strategies include*
-- 
-  - 🔼 Increase the weight `w_d` on `R_data` (e.g., `1e1`....).
-  - 🔽 Decrease the weight `w_p` on `R_physics` (e.g., set to `1e-1...).
-  - 
-    *These adjustments, however, are problem-dependent*
-    
-*NB: RJ-PINNs are generally reliable when identifying a single parameter. However, the simultaneous identification of multiple parameters may require manual tuning. The convergence efficiency of RJ-PINNs in inverse problems remains an open question*
+*Instability can occur when attempting to identify multiple parameters simultaneously. There are easy ways to mitigate:*
+
 
 
 # RJ-PINNs Stability with Prior-Residuals
@@ -132,6 +126,61 @@ r = tf.concat([
 
 ```
 
+
+
+# Uniform prior on [a,b]
+
+
+
+
+```python
+## Python Snippet
+
+Imagine you need to identify **λ₁** and **λ₂** simultaneously, and the standard RJ-PINNs training shows instability.  
+Suppose the true parameters are:
+
+* `lambda1_true = 1.0`  
+* `lambda2_true = 0.05`
+
+### Parameter Initialization
+As usual in RJ-PINNs, initialize the trainable parameters:
+
+# Initialize trainable physical parameters
+self.lambda1 = tf.Variable(1.0, dtype=tf.float32, trainable=True)
+self.lambda2 = tf.Variable(1.0, dtype=tf.float32, trainable=True)
+
+def uniform_prior_residual(param, low, high):
+    # Résidu nul si dans l’intervalle, croissant si dehors
+    penalty_low  = tf.nn.relu(low - param)
+    penalty_high = tf.nn.relu(param - high)
+    return penalty_low + penalty_high
+
+# Exemple bornes [0,9]
+rl1 = uniform_prior_residual(self.lambda1, 1.0, 9.0)
+rl2 = uniform_prior_residual(self.lambda2, 0.0, 9.0)
+
+rl1 = tf.reshape(rl1, [-1,1])
+rl2 = tf.reshape(rl2, [-1,1])
+
+
+
+
+
+
+# Combine all residuals into augmented residual vector
+r = tf.concat([
+    r_data,
+ r_physic,
+    r_bc,
+    
+    r_ic,
+    rl1,
+  rl2
+], axis=0)
+
+
+
+```
 
 
 
