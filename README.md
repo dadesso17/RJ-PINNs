@@ -28,18 +28,15 @@ For more information, please refer to the following:https://github.com/dadesso17
 </p>
 #### ⚠️ Important: Practical Notes for Using RJ-PINNs
 
-> **RJ-PINNs** (Residual Jacobian Physics-Informed Neural Networks) offer better convergence and stability than traditional PINNs — but some practical issues can still arise.
 
 
-- **For direct problems:**
-- RJ-PINNs can be sensitive to boundary conditions.
-  
+
 
 
 **For inverse problems:**
 
 
-*Instability can occur when attempting to identify multiple parameters simultaneously. There are easy ways to mitigate:*
+*Instability can occur when attempting to identify multiple parameters simultaneously. It is easy to mitigate; the user can apply one of the techniques listed below or design a custom approach based on their knowledge.*
 
 
 
@@ -183,7 +180,11 @@ r = tf.concat([
 ```
 
 
+- **For direct problems:**
+- RJ-PINNs can be sensitive to boundary conditions.
 
+The real challenge in the RJ-PINNs framework is its sensitivity to boundary conditions. It often fails when confronted with certain real-world boundary conditions that are successfully handled by traditional numerical methods.
+  
 
 ## Notice: The author of the RJ-PINNs framework declares that all publications currently on the RJ-PINNs project page are based on his own knowledge and research. If any content is found to be inappropriate or unsuitable for the page, he reserves the right to remove it and apologizes for any inconvenience or damage caused. He also welcomes contributions or collaborations that can help make RJ-PINNs more robust
 
