@@ -36,7 +36,7 @@ For more information, please refer to the following:https://github.com/dadesso17
 **For inverse problems:**
 
 
-*Instability can occur when attempting to identify multiple parameters simultaneously. It is easy to mitigate; the user can apply one of the techniques listed below or design a custom approach based on their knowledge.*
+*Instability may occur when attempting to identify multiple parameters simultaneously. This issue can be mitigated relatively easily: users may develop custom strategies based on their expertise, such as parameter bounding or other tailored approaches similar to the techniques outlined below.*
 
 
 
