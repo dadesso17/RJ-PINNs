@@ -189,30 +189,25 @@ The real challenge in the RJ-PINNs framework is its sensitivity to boundary cond
 
 
 
-## RJ-PINNs (Ultra-Compact)
+# RJ-PINNs (Ultra-Compact)
+
+## Problem Formulation
 
 **Rosenbrock residual vector:**  
 \[
-r(x) =
-\begin{pmatrix}
-10 (x_1 - x_0^2) \\
-1 - x_0
-\end{pmatrix},\quad \min_x \|r(x)\|^2
+r(x) = \begin{pmatrix} 10 (x_1 - x_0^2) \\ 1 - x_0 \end{pmatrix},\quad \min_x \|r(x)\|^2
 \]
 
 **RJ-PINNs residual vector:**  
 \[
-r(\theta) =
-\begin{pmatrix}
-r_{\text{data}}(\theta) \\
-r_{\text{physics}}(\theta) \\
-r_{\text{bc}}(\theta) \\
-r_{\text{ic}}(\theta)
-\end{pmatrix},\quad \min_\theta \|r(\theta)\|
+r(\theta) = \begin{pmatrix} r_{\text{data}}(\theta) \\ r_{\text{physics}}(\theta) \\ r_{\text{bc}}(\theta) \\ r_{\text{ic}}(\theta) \end{pmatrix},\quad \min_\theta \|r(\theta)\|
 \]
 
-- Jacobian \(J_r(\theta)\) is **computed to guide optimization**, not added to the objective.  
-- **RJ-PINNs ≠ traditional PINNs + Jacobian regularization**; they solve the problem directly at the residual level.
+## Key Features
+
+- Jacobian \(J_r(\theta)\) is **computed to guide optimization**, not added to the objective
+- **RJ-PINNs ≠ traditional PINNs + Jacobian regularization** - they solve the problem directly at the residual level
+
 
 
 
