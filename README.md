@@ -184,6 +184,39 @@ r = tf.concat([
 - RJ-PINNs can be sensitive to boundary conditions.
 
 The real challenge in the RJ-PINNs framework is its sensitivity to boundary conditions. It often fails when confronted with certain real-world boundary conditions that are successfully handled by traditional numerical methods.
+
+
+
+
+
+## RJ-PINNs (Ultra-Compact)
+
+**Rosenbrock residual vector:**  
+\[
+r(x) =
+\begin{pmatrix}
+10 (x_1 - x_0^2) \\
+1 - x_0
+\end{pmatrix},\quad \min_x \|r(x)\|^2
+\]
+
+**RJ-PINNs residual vector:**  
+\[
+r(\theta) =
+\begin{pmatrix}
+r_{\text{data}}(\theta) \\
+r_{\text{physics}}(\theta) \\
+r_{\text{bc}}(\theta) \\
+r_{\text{ic}}(\theta)
+\end{pmatrix},\quad \min_\theta \|r(\theta)\|
+\]
+
+- Jacobian \(J_r(\theta)\) is **computed to guide optimization**, not added to the objective.  
+- **RJ-PINNs ≠ traditional PINNs + Jacobian regularization**; they solve the problem directly at the residual level.
+
+
+
+
   
 
 ## Notice: The author of the RJ-PINNs framework declares that all publications currently on the RJ-PINNs project page are based on his own knowledge and research. If any content is found to be inappropriate or unsuitable for the page, he reserves the right to remove it and apologizes for any inconvenience or damage caused. He also welcomes contributions or collaborations that can help make RJ-PINNs more robust
