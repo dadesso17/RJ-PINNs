@@ -49,7 +49,7 @@ The name “Residual Jacobian PINNs” does not mean “traditional PINNs + Jaco
 - Jacobian `J_r(θ)` is **computed to guide optimization**, not added to the objective
 - **RJ-PINNs ≠ traditional PINNs + Jacobian regularization** - they solve the problem directly at the residual level using least-squares optimization
   
-#### ⚠️ Important: Practical Notes for Using RJ-PINNs
+# ⚠️ Important: Practical Notes for Using RJ-PINNs
 
 
 
