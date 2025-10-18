@@ -10,6 +10,17 @@ For more information, please refer to the following:https://github.com/dadesso17
 - **No Gradient Optimizers**: Eliminate the need for gradient optimizers in PINNs.
 - **Robustness for Inverse PDE Problems**: Unmatched robustness for solving inverse partial differential equations (PDE) problems.
 
+## RJ-PINNs Clarification
+
+RJ-PINNs do **not** rely on traditional PINNs strategies; they represent a **completely different approach** to solving physics-based problems in AI.  
+
+The name *RJ-PINNs* does **not** imply any direct relation or shared implementation with PINNs.  
+
+While traditional PINNs typically use **gradient-based optimizers** to minimize a weighted loss function, RJ-PINNs employ a **nonlinear least-squares optimizer** that directly minimizes the residual vector.  
+
+Thus, RJ-PINNs and PINNs are **fundamentally different methods** for solving physical problems.
+
+
 ## Key Differences
 
 | Aspect         | Traditional PINNs                         | RJ-PINNs                               |
