@@ -32,7 +32,7 @@ For more information, please refer to the following:https://github.com/dadesso17
 
 
 # RJ-PINNs (Ultra-Compact)
-The name “Residual Jacobian PINNs” does not mean “traditional PINNs + Jacobian regularization”, as incorrectly stated in some recent articles.
+The name “Residual Jacobian PINNs” does not mean “traditional PINNs + Jacobian regularization”.
 
 ### Problem Formulation
 
