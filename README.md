@@ -26,6 +26,28 @@ For more information, please refer to the following:https://github.com/dadesso17
     <p align="center">
   <img src="./im.png" width="800">
 </p>
+
+
+
+
+
+#### RJ-PINNs (Ultra-Compact)
+
+## Problem Formulation
+
+**Rosenbrock residual vector:**  
+`r(x) = [10(x₁ - x₀²), 1 - x₀]ᵀ` with `minₓ ||r(x)||²`
+
+**RJ-PINNs residual vector:**  
+`r(θ) = [r_data(θ), r_physics(θ), r_bc(θ), r_ic(θ)]ᵀ`
+
+**Objective:** Solve `r(θ) ≈ 0` via least-squares minimization (i.e., `min_θ ||r(θ)||²`)
+
+## Key Features
+
+- Jacobian `J_r(θ)` is **computed to guide optimization**, not added to the objective
+- **RJ-PINNs ≠ traditional PINNs + Jacobian regularization** - they solve the problem directly at the residual level using least-squares optimization
+  
 #### ⚠️ Important: Practical Notes for Using RJ-PINNs
 
 
@@ -188,23 +210,7 @@ The real challenge in the RJ-PINNs framework is its sensitivity to boundary cond
 
 
 
-# RJ-PINNs (Ultra-Compact)
 
-## Problem Formulation
-
-**Rosenbrock residual vector:**  
-`r(x) = [10(x₁ - x₀²), 1 - x₀]ᵀ` with `minₓ ||r(x)||²`
-
-**RJ-PINNs residual vector:**  
-`r(θ) = [r_data(θ), r_physics(θ), r_bc(θ), r_ic(θ)]ᵀ`
-
-**Objective:** Solve `r(θ) ≈ 0` via least-squares minimization (i.e., `min_θ ||r(θ)||²`)
-
-## Key Features
-
-- Jacobian `J_r(θ)` is **computed to guide optimization**, not added to the objective
-- **RJ-PINNs ≠ traditional PINNs + Jacobian regularization** - they solve the problem directly at the residual level using least-squares optimization
-  
 
 ## Notice: The author of the RJ-PINNs framework declares that all publications currently on the RJ-PINNs project page are based on his own knowledge and research. If any content is found to be inappropriate or unsuitable for the page, he reserves the right to remove it and apologizes for any inconvenience or damage caused. He also welcomes contributions or collaborations that can help make RJ-PINNs more robust
 
