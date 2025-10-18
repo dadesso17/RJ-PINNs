@@ -194,21 +194,15 @@ The real challenge in the RJ-PINNs framework is its sensitivity to boundary cond
 ## Problem Formulation
 
 **Rosenbrock residual vector:**  
-\[
-r(x) = \begin{pmatrix} 10 (x_1 - x_0^2) \\ 1 - x_0 \end{pmatrix},\quad \min_x \|r(x)\|^2
-\]
+`r(x) = [10(x₁ - x₀²), 1 - x₀]ᵀ` with `minₓ ||r(x)||²`
 
 **RJ-PINNs residual vector:**  
-\[
-r(\theta) = \begin{pmatrix} r_{\text{data}}(\theta) \\ r_{\text{physics}}(\theta) \\ r_{\text{bc}}(\theta) \\ r_{\text{ic}}(\theta) \end{pmatrix},\quad \min_\theta \|r(\theta)\|
-\]
+`r(θ) = [r_data(θ), r_physics(θ), r_bc(θ), r_ic(θ)]ᵀ` with `min_θ ||r(θ)||`
 
 ## Key Features
 
-- Jacobian \(J_r(\theta)\) is **computed to guide optimization**, not added to the objective
+- Jacobian `J_r(θ)` is **computed to guide optimization**, not added to the objective
 - **RJ-PINNs ≠ traditional PINNs + Jacobian regularization** - they solve the problem directly at the residual level
-
-
 
 
 
