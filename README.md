@@ -79,7 +79,7 @@ As described in the article, RJ-PINNs may incorporate regularization or a prior-
 
 
 $$
-\frac{\lambda_i - \mu_i}{\sigma_i}
+S*\frac{\lambda_i - \mu_i}{\sigma_i}
 $$
 
 This acts as a **classical regularisation** in the deterministic sense,
@@ -95,8 +95,8 @@ R_{\text{aug}}(\theta) = \begin{bmatrix}
 R_{\text{data}} \\
 R_{\text{physics}} \\
 R_{\text{BC/IC}} \\
-\frac{\lambda_1 - \mu_1}{\sigma_1} \\
-\frac{\lambda_2 - \mu_2}{\sigma_2}
+S1*\frac{\lambda_1 - \mu_1}{\sigma_1} \\
+S2*\frac{\lambda_2 - \mu_2}{\sigma_2}
 \end{bmatrix}
 $$
 
@@ -127,6 +127,7 @@ self.lambda1 = tf.Variable(1.0, dtype=tf.float32, trainable=True)
 self.lambda2 = tf.Variable(1.0, dtype=tf.float32, trainable=True)
 
 # Set prior means and standard deviations
+S1=S2=1
 self.prior_mu1 = 1.0
 self.prior_sigma1 = 0.1
 
