@@ -213,8 +213,9 @@ r = tf.concat([
 ```
 
 
-## RJ-PINNs can, in principle, be extended beyond physics-informed problems to other multi-objective learning tasks involving multiple loss components.
-
+<h2 style="color:red;">
+RJ-PINNs can, in principle, be extended beyond physics-informed problems to other multi-objective learning tasks involving multiple loss components.
+</h2>
 
 
 
