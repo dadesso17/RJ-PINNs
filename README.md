@@ -213,11 +213,7 @@ r = tf.concat([
 ```
 
 
-- **For direct & inverse  problems:**
-- RJ-PINNs can be sensitive to boundary conditions.
-
-The real challenge in the RJ-PINNs framework is its sensitivity to boundary conditions. It often fails when confronted with certain real-world boundary conditions that are successfully handled by traditional numerical methods.
-
+##RJ-PINNs can, in principle, be extended beyond physics-informed problems to other multi-objective learning tasks involving multiple loss components.
 
 
 
