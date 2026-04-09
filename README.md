@@ -212,24 +212,20 @@ r = tf.concat([
 
 ```
 
+> [!IMPORTANT]
+> 🚀 **RJ-AI = Generalization of RJ-PINNs**
+## 🔴 🔄 From RJ-PINNs to RJ-AI (Generalization)
 
-## 🔴 RJ-PINNs can, in principle, be extended beyond physics-informed problems to other multi-objective learning tasks involving multiple loss components.
+🔴 While RJ-PINNs is introduced in the context of physics-informed neural networks, the underlying formulation is not restricted to physical problems.
 
-<div style="color:#cc0000;">
-<h2>🔄 From RJ-PINNs to RJ-AI (Generalization)</h2>
+🔴 The method is based on residual vectors and their associated Jacobian, making it naturally applicable to multi-objective learning problems involving multiple loss terms.
 
-<p>
-While RJ-PINNs is introduced in the context of physics-informed neural networks, the underlying formulation is not restricted to physical problems.
-</p>
+🔴 From this perspective, RJ-PINNs can be viewed as a specific instance of a broader framework referred to as **Residual Jacobian AI (RJ-AI)**.
 
-<p>
-The method is based on residual vectors and their associated Jacobian, making it naturally applicable to multi-objective learning problems involving multiple loss terms.
-</p>
 
-<p>
-From this perspective, RJ-PINNs can be viewed as a specific instance of a broader framework referred to as <b>Residual Jacobian AI (RJ-AI)</b>.
-</p>
-</div>
+
+
+
 
 ## Notice: The author of the RJ-PINNs framework declares that all publications currently on the RJ-PINNs project page are based on his own knowledge and research. If any content is found to be inappropriate or unsuitable for the page, he reserves the right to remove it and apologizes for any inconvenience or damage caused. He also welcomes contributions or collaborations that can help make RJ-PINNs more robust
 
