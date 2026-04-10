@@ -7,7 +7,7 @@ For more information, please refer to the following:https://github.com/dadesso17
 
 ## Features
 - **Jacobian-based least-squares (TRF)**: Directly minimize residuals without traditional loss functions.
-- **No Gradient Optimizers**: Eliminate the need for gradient optimizers in PINNs.
+- **No Gradient Optimizers**: Eliminate the need for gradient optimizers in PINNs or AI.
 - **Robustness for Inverse PDE Problems**: Unmatched robustness for solving inverse partial differential equations (PDE) problems.
 
 ## RJ-PINNs Clarification
