@@ -11,7 +11,6 @@ The original RJ-PINNs project has evolved into the **Residual Jacobian Framework
 🔗 **RJF Repository:**  
 https://github.com/dadesso17/RJF
 
-➡️ Please visit the RJF repository for the latest developments and updates.
 
 
 
